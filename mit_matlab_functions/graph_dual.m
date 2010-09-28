@@ -1,0 +1,1 @@
+% Finds the dual of a graph; a dual is the inverted nodes-edges graph% This is also called the line graph, adjoint graph or the edges adjacency% INPUTs: incidence matrix% OUTPUTs: incidence matrix of the corresponding dual graph% Gergana Bounova, February 13, 2006function inc_d = graph_dual(inc)inc_d=inc';

@@ -1,0 +1,306 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>
+    Gergana Bounova
+  </title>
+</head>
+<body>
+<table class="main" cellspacing=0 cellpadding=0 width=100% align=left>
+<tr>
+  <td class="topleft" align=center><h1> </h1></td>
+  <!-- <td class="middle">&nbsp;&nbsp;</td> -->
+  <td class="topright" valign="bottom">
+     <table align=left cellpadding=0 cellspacing=0>
+       <tr>
+         <td class="tabnone"> &nbsp;  </td>
+         <td class="tab0"> <a href="index.html"> Home </a></td>
+	 <td class="tab1"> <a href="vitae.html"> Vitae </a></td>
+         <td class="tab1"> <a href="research.html">Research</a> </td>
+         <td class="tab1"> <a href="publications.html">Publications</a> </td>
+	 <td class="tab1"> <a href="downloads.html">Downloads</a> </td>
+         <!-- <td class="tab2"> <a href=""></a> </td> -->
+       </tr>
+     </table>
+  </td>
+</tr>
+<tr>
+ <td width=170 class="bottomleftout" valign="top">
+    <table width=100% cellspacing=0>
+       <td class="bottomleft" valign="top">
+       <!-- <left><img src="graphics/yellowstone.jpg" border=1><br></left> -->
+       Gergana Bounova<br>
+       strategic.mit.edu <br>
+       firstname at mit.edu<br>
+       &nbsp;<br>
+       </td>
+     </table>
+ </td>
+<!-- <td class="middle">&nbsp;&nbsp;</td> -->
+<td class="bottomright" valign="top">
+<!----------------------------------------------------------------------->
+<!-- Main page -->
+<a href="#matlab">Network modeling with Matlab: toolbox</a><br>
+<a href="#telescope arrays">Large Telescope Arrays code</a><br>
+<a href="#chinese_airlines">Chinese airlines 2006 data</a><br>
+<a href="#CERA_paper">Various mechanical systems DSMs</a>
+</td></tr>
+
+<tr>  <!-- The network modeling table row -->
+<td width=170 class="bottomleft" valign="top">
+
+<br><br>Links ....<br><br>
+<a href="http://www.mathworks.com/matlabcentral/fileexchange/4266">grTheory: Matlab Central</a><br>
+<a href="http://people.cs.ubc.ca/~murphyk/Software/BDAGL/adj2pajek2.m">adj2pajek2.m by K. Murphy</a><br>
+<a href="downloads/matlab_tutorial.pdf">2/2006 - Networks tutorial</a><br>
+<a href="downloads/matlab_routines_5_3_06.zip">5/2006 - old Matlab routines</a>
+</td>
+<td class="bottomright" valign="top">
+<hr color=darkblue>
+<b><a name="matlab"><u><h1>Matlab tools for network analysis</h1></u></a></b><br>
+<font color="darkred" size=3pt>Nov 5: This upload is in progress. For questions, comments, suggestions and corrections, please email.</font><br><br>
+
+This toolbox was written about three years ago (2006) and randomly updated, because I switched from Matlab to Python due to the growing size of the datasets I had to analyze. Some of the Python routines do not have an equivalent in Matlab, but the Python code will also published here for reference. These routines are useful for someone who wants to start hands-on work with networks fairly quickly, and explore simple graph statistics, distributions, simple visualization and other common network theory metrics. This code is not object-oriented, and should be easy to use, read and improve upon. There is some overlap with the <a href="http://www.mathworks.com/matlabcentral/fileexchange/4266">grTheory toolbox</a> published on <a href="http://www.mathworks.com/matlabcentral/fileexchange/">Matlab Central</a>, however our routines are not tailored to pure graph theorists but more to applied graph (network) theory research. No code is perfect so please contact me if you notice errors or have pointers to better routines.<br><br>
+The code is classified by functionality as follows: <br><br>
+<b>Basic network routines</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp getnodes.m <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp getedges.m <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/numnodes.m">numnodes.m</a> - number of vertices/nodes in the network; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/numedges.m">numedges.m</a> - number of edges/links in the network; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/link_density.m">link_density.m</a> - the density of links of the graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/selfloops.m">selfloops.m</a> - number of selfloops, i.e. nodes connected to themselves;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/multiedges.m">multiedges.m</a> - number of arcs (i,j) with multiple edges across them; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/average_degree.m">average_degree.m</a> - the average degree (# links) across all nodes; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/num_conn_comp.m">num_conn_comp.m</a> - the number of connected components using the algebraic connectivity; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/find_conn_comp.m">find_conn_comp.m</a> - the number of connected components in the graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/giant_component.m">giant_component.m</a> - extract the giant component only; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/graph_complement.m">graph_complement.m</a> - the complement graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/graph_dual.m">graph_dual.m</a> - the graph dual (or line graph, adjoint graph); <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/subgraph.m">subgraph.m</a> - return the subgraph given the supergraph adj matrix and the set of subgraph nodes;<br>
+<br>
+<b>Diagnostics</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/issimple.m">issimple.m</a> - check whether the graph has selfloops and multiple edges;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/isdirected.m">isdirected.m</a> - directed or undirected graph (right now uses issymmetric); <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/issymmetric.m">issymmetric.m</a> - check whether a matrix is symmetric; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/isconnected.m">isconnected.m</a> - check whether a graph is connected; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/isweighted.m">isweighted.m</a> - determine whether the graphs has weighted links;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/isregular.m">isregular.m</a> - check whether it's a regular graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/iscomplete.m">iscomplete.m</a> - check whether the graph is complete; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/iseulerian.m">iseulerian.m</a> - find out whether it's an eulerian graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/istree.m">istree.m</a> - check whether the graph is a tree;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/diagnose_powerlaw.m">diagnose_powerlaw.m</a> - diagnose a sequence as power law or not;<br>
+<br>
+<b>Conversion routines</b> - see <a href="papers/BounovaPhDThesis2009.pdf">page 34, Table 1.1</a><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2adjL.m">adj2adjL.m</a>, (<a href="downloads/matlab/adjL2adj.m">adjL2adj.m</a>) - convert an adjacency matrix to an adjacency list; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2edgeL.m">adj2edgeL.m</a>, (<a href="downloads/matlab/edgeL2adj.m">edgeL2adj.m</a>) - convert an adjacency matrix to an edge list; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2inc.m">adj2inc.m</a>, (<a href="downloads/matlab/inc2adj.m">inc2adj.m</a>) - convert adjacency matrix to incidence matrix and vice-versa; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2str.m">adj2str.m</a>, (<a href="downloads/matlab/str2adj.m">str2adj.m</a>) - convert adjacency matrix to a string graph representation;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adjL2edgeL.m">adjL2edgeL.m</a>, (<a href="downloads/matlab/edgeL2adjL.m">edgeL2adjL.m</a>) - convert adjacency list to edge list;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2simple.m">adj2simple.m</a> - Remove selfloops and multiedges from an adjacency matrix<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/edgeL2simple.m">edgeL2simple.m</a> - remove selfloops and multiedges from an edgelist <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/add_edges.m">add_edges.m</a> - adding edges that occur multiple times in an edgelist; summing weights; <br> 
+<br>
+<b>Centrality measures & Distributions</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/degrees.m">degrees.m</a> - returns the degree, in-degree and out-degree sequence of an arbitrary adjacency matrix; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/ave_neighbor_deg.m">ave_neighbor_deg.m</a> - computes the average degree of neighboring nodes for every verte; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/closeness.m">closeness.m</a> - computes the closeness centrality for all vertices;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/node_betweenness_slow.m">node_betweenness.m</a> - a slow node betweenness algorithm, based on the # of shortest paths definition; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/edge_betweenness_slow.m">edge_betweenness.m</a> - a slow edge betweenness algorithm, based on the # of shortest paths definition;  <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp node/edge betweenness using dijkstra; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/eigencentrality.m">eigencentrality.m</a> - node eigencentrality (eigenvector corresponding to the largest eigenvalue); <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/clust_coeff.m">clust_coeff.m</a> - compute two clustering coefficients, based on triangle loops and local clustering; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/pearson.m">pearson.m</a> - pearson degree correlation; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/rich_club_metric.m">rich_club_metric.m</a><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/s_metric.m">s_metric.m</a> - the sum of products of nodal degrees across all edges; <br>
+<br>
+<b>Spectral properties</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/laplacian_matrix.m">laplacian_matrix.m</a> - the Laplacian of the graph: degree matrix minus the adjacency; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/graph_spectrum.m">graph_spectrum.m</a> - the sorted eigenvalues of the Laplacian; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/algebraic_connectivity.m">algebraic_connectivity.m</a> - the second smallest eigenvalue of the Laplacian; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/fiedler_vector.m">fiedler_vector.m</a> - the eigenvector corresponding to the algebraic connectivity; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp eigencentrality.m - see Centrality measures & Distributions <br>
+<br>
+<b>Distances</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/simple_dijkstra.m">simple_dijkstra.m</a> - simple implementation of Dijkstra's algorithm, does not remember the path; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Dijkstra with storing the paths; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/shortest_pathDP.m">shortest_pathDP.m</a> - shortest path algorithm using dynamic programming; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/kneighbors.m">kneighbors.m</a> - returns the indices of all neighbors <i>k</i> links away (for a given node);<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/diameter.m">diameter.m</a> - the longest shortest path in the graph;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/ave_path_length.m">ave_path_length.m</a> - the average shortest path in the graph;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/distance_distribution.m">distance_distribution.m</a> - the # of pairs of nodes at a distance x, divided by the total # of pairs; <br>
+<br>
+<b>Comparing graphs</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp aligned graph hamming distance; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp hubs and authorities graph similarity (Blondel); <br>
+<br>
+<b>Modularity</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp bi-partitioning; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp clustering; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Newman-Girvan algorithm; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Newman eigenvector modularity; <br>
+<br>
+<b>Motifs</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/loops3.m">loops3.m</a> - count all loops of size 3 in the graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp loops of size 4; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp find all cliques; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp general heuristic motif-finding routine; <br>
+<br>
+<b>Building graphs</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/random_graph.m">random_graph.m</a> - generate a random graph adjacency matrix using various models; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random_graph(n) - Erdos-Renyi graph with <b>n</b> nodes and probability of attachment 0.5; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random_graph(n,p) - Erdos-Renyi graph with <b>n</b> nodes and probability of attachment <b>p</b>; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random_graph(n,[ ],E) - random graph with E number of edges; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random_graph(n,[ ],[ ],distribution,@fun) - nodal degrees are drawn from a particular distribution <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp (uniform, normal, geometric, binomial, exponential or custom); <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random_graph(n,[ ],[ ],'sequence',[ ],deg_seq) - the nodal degrees match a given degree sequence; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/random_modular_graph.m">random_modular_graph.m</a> - random graph with modules, given # nodes, # modules, and densities; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp random graph with controlled zero clustering coefficient and zero degree correlation; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp canonical nets; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/PriceModel.m">PriceModel.m</a> - Price's citations growth model; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/preferential_attachment.m">preferential_attachment.m</a> - preferential attachment graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp s-max graph; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp exponential growth; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp master equation; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Newman-Gastner spatial distribution model; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Fabrikant model; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp randomized hierarchies; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp ... <br>
+<br>
+<b>Plotting distributions</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/pdf_cdf_rank.m">pdf_cdf_rank.m</a> - pdf, cdf and rank distributions of a given sequence;<br>
+<br>
+<b>Drawing graphs</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/adj2pajek.m">adj2pajek.m</a>, (<a href="downloads/matlab/pajek2adj.m">pajek2adj.m</a>) - convert an adjacency matrix to a Pajek readable format: output .net file;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/edgeL2pajek.m">edgeL2pajek.m</a>, (<a href="downloads/matlab/pajek2edgeL.m">pajek2edgeL.m</a>) - convert an edge list to a Pajek readable format: output .net file;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/pajek2xyz.m">pajek2xyz.m</a> - Extract node x,y,z coordinates from a Pajek .net file, useful for drawing in Matlab; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/draw_circ_graph.m">draw_circ_graph.m</a> - draw a graph with all nodes in a circle, ordered by degree; <br> 
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/draw_dot_matrix.m">draw_dot_matrix.m</a> - dot matrix plots with sorted columns/rows by various measures; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/el2geom.m">el2geom.m</a> - plot an edgelist geographically with color-coding of edge weights; need coordinates; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Kamada-Kawai algorithm; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp Harel algorithm; <br>
+<br>
+<b>Auxiliary</b><br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/symmetrize.m">symmetrize.m</a> - symmetrize a matrix;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/symmetrize_edgeL.m">symmetrize_edgeL.m</a> - symmetrize an edge list (make it undirected);<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/ind2ij.m">ind2ij.m</a> - convert array index to matrix (i,j) coordinates;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/ij2ind.m">ij2ind.m</a> - convert (i,j) matrix coordinates to array index;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/num_conn_triples.m">num_conn_triples.m</a> - the number of connected triples of nodes, given the adjacency matrix;<br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/purge.m">purge.m</a> - remove elements from a list, while preserving the order; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/random_number.m">random_number.m</a> - random number generator using the computer clock; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/min_span_tree.m">min_span_tree.m</a> - construct a minimum spanning tree given the adjacency matrix; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/BFS.m">BFS.m</a> - breadth-first tree; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="downloads/matlab/DFS.m">DFS.m</a> - depth-first tree; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp simulated annealing tool; <br>
+&nbsp &nbsp &nbsp &nbsp &nbsp <a href="http://www.mathworks.com/matlabcentral/fileexchange/10751-unitize">unitize.m</a> - convert a vector to a unit vector; <br>
+<br><br>
+
+
+</td></tr> <!-- End of the network modeling table row -->
+
+<tr> <!-- The telescope arrays table row -->
+<td width=170 class="bottomleft" valign="top">
+<br><br>Links ....<br><br>
+<a href="http://dspace.mit.edu/handle/1721.1/28907" >Masters thesis</a><br>
+<a href="papers/AIAAMDO-2005-2063.pdf">Telescope Arrays paper</a>
+</td>
+<td class="bottomright" valign="top">
+<hr color=darkblue>
+<b><a name="telescope arrays"><u><h1>Large telescope arrays</h1></u></a></b><br><br>
+<table border="1" bordercolor='darkblue'>
+<tr>
+<td><img src=""></td>
+</tr></table>
+<b><i>Graphic here?</i></b> 
+</td></tr>  <!-- End of the telescope arrays table row -->
+
+<tr> <!-- The chinese airlines table row -->
+<td width=170 class="bottomleft" valign="top">
+<br><br>Links ....<br><br>
+<a href="papers/ChineseAirlineNetworks.pdf">SFI summer school paper</a><br>
+<a href="papers/ChineseDomesticAirlineNetworksPresentation.pdf">Presentation</a>, <a href="papers/chinese_airlines_poster.PNG">Poster</a><br>
+<a href="http://www.santafe.edu/events/workshops/index.php/Chinese_domestic_airline_networks:">SFI project wiki</a>
+</td>
+<td class="bottomright" valign="top">
+<hr color=darkblue>
+<b><a name="chinese_airlines"><u><h1>Chinese airlines 2006 timetable data</h1></u></a></b><br><br>
+
+This data is publicly available (or was in 7/2006) and was collected for the purposes of a study on airline network topology and robustness. The entire timetable as collected, is linked in "Raw data" below. The entire edgelist generated from it is linked in "Master edgelist". It contains all origin-destination pairs, including airline code, aircraft type and number of weekly departures ([airline, origin, destination, a/c type, frequency]). The origin-destination pairs and the aircraft types were used to create networks for each airline, and study the network capacity in terms of seats offered every week. The analysis of 20 Chinese airline networks is described in the material linked on the left. <br><br>
+
+<a href="downloads/chinese_airlines/china_domestic_timetable.txt">Raw data - July 2006 timetable</a><br>
+<a href="downloads/chinese_airlines/china_domestic_edgeL_2006.txt">Master edgelist</a><br>
+<a href="downloads/chinese_airlines/chinese_timetable_airline_codes_2006.txt">Airline codes</a> that appear in the timetable<br>
+<a href="downloads/chinese_airlines/chinese_airports_dictionary_2006.txt">Chinese airports dictionary</a> <br>
+<br><table border="1" bordercolor='darkblue'>
+<tr>
+<td><img src="downloads/chinese_airlines/airline_SCgeo.png" width=280><img src="downloads/chinese_airlines/airline_SCopt.png" width=280></td>
+</tr></table>
+<b>Example of the <a href="http://en.wikipedia.org/wiki/Shandong_Airlines">Shandong Airlines</a> timetable in geographic plot (left) and spring-energy plot (right). The right plot shows the hubs better - Qingdao (TAO) and Jinan (TNA).</b>
+</td></tr>  <!-- End of the chinese airlines table row -->
+
+<tr> <!-- CERA paper table row -->
+<td width=170 class="bottomleft" valign="top">
+<!--
+<br><br>Links ....<br><br>
+<a href="http://cer.sagepub.com/content/vol15/issue2/">Degree of Modularity in Engineering Systems paper</a><br> -->
+</td>
+<td class="bottomright" valign="top">
+<hr color=darkblue>
+<b><a name="CERA_paper"><u><h1>Various mechanical systems DSMs</h1></u></a></b><br><br>
+
+These DSMs (or adjacency matrices) are the data behind: <br><br>
+Katja Holtta-Otto and Olivier de Weck, <a href="http://cer.sagepub.com/content/vol15/issue2/"><i> Degree of Modularity in Engineering Systems and Products with Technical and Business Constraints</i></a>, Concurrent Engineering 2007 15: 113-126.<br><br>
+
+<table border=0 cellspacing=20>
+<tr>
+<td>
+<a href="downloads/CERA/BoomBoxDSMmetrics.xls">boombox DSM</a><br>
+<a href="downloads/CERA/CDDSMmetrics.xls">CD DSM</a><br>
+<a href="downloads/CERA/cellphone.txt">cell phone</a><br>
+<a href="downloads/CERA/climatecontrol.txt">climate control</a><br>
+<a href="downloads/CERA/cordlessdrill.txt">cordless drill</a><br>
+</td>
+<td>
+<a href="downloads/CERA/cordlesssaw.txt">cordless saw</a><br>
+<a href="downloads/CERA/ctinjector.txt">CT injector</a><br>
+<a href="downloads/CERA/deskphone.txt">desk phone</a><br>
+<a href="downloads/CERA/desktoppc.txt">desktop PC</a><br>
+<a href="downloads/CERA/intracam.txt">Intracam</a><br>
+</td>
+<td>
+<a href="downloads/CERA/jetengine.txt">jet engine</a><br>
+<a href="downloads/CERA/laptop.txt">laptop</a><br>
+<a href="downloads/CERA/mrinjector.txt">mr injector</a><br>
+<a href="downloads/CERA/picketfence.txt">picket fence</a><br>
+<a href="downloads/CERA/pipette.txt">pipette</a><br>
+</td>
+<td>
+<a href="downloads/CERA/portableCDDSMmetrics.xls">portable CD DSM</a><br>
+<a href="downloads/CERA/powertrain.txt">power train</a><br>
+<a href="downloads/CERA/stapler_VanWie_etal.xls">stapler</a><br>
+<a href="downloads/CERA/WalkmanDSMmetrics.xls">walkman DSM</a><br>
+</td>
+</tr>
+</table>
+
+</td></tr>  <!-- End of the chinese airlines table row -->
+
+<tr> <!-- The Shinystat table row -->
+<td width=170 class="bottomleft" valign="top"></td>   <!-- Empty for a reason -->
+<td class="bottomright" valign="top">
+<br>
+<br>
+<br>
+<hr color=darkblue>
+<!-- Begin Shinystat Free code -->
+<script type="text/javascript" language="JavaScript" src="http://codice.shinystat.com/cgi-bin/getcod.cgi?USER=Gergana"></script>
+<noscript>
+<a href="http://www.shinystat.com" target="_top">
+<img src="http://www.shinystat.com/cgi-bin/shinystat.cgi?USER=Gergana" alt="Free web counter" border="0"></a>
+</noscript>
+<!-- End Shinystat Free code -->
+<!----------------------------------------------------------------------->
+</td>
+</tr>
+</table>
+</body>
+</html>
